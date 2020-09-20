@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.getSupportActionBar().hide();
+
         loadImage = findViewById(R.id.loadID);
         loadImage.setBackgroundResource(R.drawable.load_animation);
         loadAnimation = (AnimationDrawable)loadImage.getBackground();
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 loadAnimation.stop();
                 MainActivity.this.finish();
             }
-        },3000);
+        },4000);
 
     }
 }
