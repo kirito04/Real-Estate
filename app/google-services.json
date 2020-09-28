@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "201511086407",
+    "firebase_url": "https://real-estate-system-f1caf.firebaseio.com",
+    "project_id": "real-estate-system-f1caf",
+    "storage_bucket": "real-estate-system-f1caf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:201511086407:android:a0ad2ecce390311a7e0462",
+        "android_client_info": {
+          "package_name": "com.example.realestate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "201511086407-v0f37j5qdkabee7auav4kigbe1gvh9n5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.realestate",
+            "certificate_hash": "885391a747ba7200df285c08ca3fe6e238052520"
+          }
+        },
+        {
+          "client_id": "201511086407-7ha1t7np740slhs96cgo3hlln5hakj2b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvzSjw3tVbdxqivBDcpo-xlhrNHKhyRnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "201511086407-7ha1t7np740slhs96cgo3hlln5hakj2b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
