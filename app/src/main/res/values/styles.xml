@@ -7,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LoginPage" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
+        <item name="colorPrimary">#CEF96358</item>
+        <item name="colorPrimaryDark">#CEF83F31</item>
+        <item name="colorAccent">#CEF83F31</item>
+    </style>
+
 </resources>

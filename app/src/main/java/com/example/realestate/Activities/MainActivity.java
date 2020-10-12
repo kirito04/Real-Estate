@@ -1,8 +1,9 @@
-package com.example.realestate;
+package com.example.realestate.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 
+import com.example.realestate.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 loadAnimation.stop();
-                //MainActivity.this.finish();
+                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                MainActivity.this.finish();
             }
         },4000);
 
