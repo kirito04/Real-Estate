@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:text="LOGIN"
                 android:textSize="34sp"
+                android:fontFamily="monospace"
                 android:textColor="@color/common_google_signin_btn_text_dark"/>
 
             <EditText
