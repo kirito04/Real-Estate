@@ -72,8 +72,26 @@ public class LoginActivity extends AppCompatActivity {
                 mUser = firebaseAuth.getCurrentUser();
                 if(mUser!=null){
                     // SIGNED IN
+                    String userId = mUser.getUid();
+                    mDatabaseRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.exists()){       // Current user exists in registered user database--CUSTOMER
+                                Toast.makeText(LoginActivity.this,"Signed In as User",Toast.LENGTH_SHORT).show();
+                                // TODO Move to details activity for customer
+                            }else{                          // Current User does'nt exist in registered user database--ADMIN
+                                Toast.makeText(LoginActivity.this,"Signed In as Admin",Toast.LENGTH_SHORT).show();
+                                // TODO Move to details activity for admin
+                            }
+                            //finish();
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                     Toast.makeText(LoginActivity.this,"You are signed in",Toast.LENGTH_LONG).show();
-                    // TODO Move to details activity
                     //finish();
                 }else{
                     Toast.makeText(LoginActivity.this,"Not signed in",Toast.LENGTH_LONG).show();
@@ -98,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Go to register activity
-                //startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
                 finish();
             }
         });
