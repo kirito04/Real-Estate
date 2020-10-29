@@ -14,9 +14,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/hexagone2"
+            android:layout_marginTop="120dp"
+            android:alpha="1"
             android:scaleType="fitXY"
-            android:layout_marginTop="120dp"/>
+            android:src="@drawable/hexagone2" />
 
         <ImageView
             android:layout_width="140dp"
@@ -38,12 +39,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="monospace"
-                android:text="REGISTER"
                 android:layout_marginTop="50dp"
                 android:layout_marginBottom="40dp"
+                android:fontFamily="monospace"
+                android:text="REGISTER"
                 android:textColor="@color/common_google_signin_btn_text_dark"
-                android:textSize="42sp"/>
+                android:textSize="42sp" />
 
             <EditText
                 android:id="@+id/registerNameID"
