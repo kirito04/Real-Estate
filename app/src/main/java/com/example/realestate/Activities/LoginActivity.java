@@ -78,12 +78,12 @@ public class LoginActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){       // Current user exists in registered user database--CUSTOMER
                                 Toast.makeText(LoginActivity.this,"Signed In as User",Toast.LENGTH_SHORT).show();
-                                // TODO Move to details activity for customer
+                                startActivity(new Intent(LoginActivity.this,CustomerDetailActivity.class));
                             }else{                          // Current User does'nt exist in registered user database--ADMIN
                                 Toast.makeText(LoginActivity.this,"Signed In as Admin",Toast.LENGTH_SHORT).show();
-                                // TODO Move to details activity for admin
+                                startActivity(new Intent(LoginActivity.this,DetailAdminActivity.class));
                             }
-                            //finish();
+                            finish();
                         }
 
                         @Override
@@ -91,8 +91,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         }
                     });
-                    Toast.makeText(LoginActivity.this,"You are signed in",Toast.LENGTH_LONG).show();
-                    //finish();
+
                 }else{
                     Toast.makeText(LoginActivity.this,"Not signed in",Toast.LENGTH_LONG).show();
                 }
@@ -115,7 +114,6 @@ public class LoginActivity extends AppCompatActivity {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Go to register activity
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
                 finish();
             }
@@ -136,10 +134,10 @@ public class LoginActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){       // Current user exists in registered user database--CUSTOMER
                                 Toast.makeText(LoginActivity.this,"Signed In as User",Toast.LENGTH_SHORT).show();
-                                // TODO Move to details activity for customer
+                                startActivity(new Intent(LoginActivity.this,CustomerDetailActivity.class));
                             }else{                          // Current User does'nt exist in registered user database--ADMIN
                                 Toast.makeText(LoginActivity.this,"Signed In as Admin",Toast.LENGTH_SHORT).show();
-                                // TODO Move to details activity for admin
+                                startActivity(new Intent(LoginActivity.this,DetailAdminActivity.class));
                             }
                             finish();
                         }
@@ -161,6 +159,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+
     }
 
     @Override
