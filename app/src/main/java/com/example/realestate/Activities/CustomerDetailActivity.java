@@ -28,7 +28,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CustomerDetailActivity extends AppCompatActivity {
 
@@ -108,14 +110,14 @@ public class CustomerDetailActivity extends AppCompatActivity {
         mDatabaseRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
                 Property property = dataSnapshot.getValue(Property.class);
 
                 propertyList.add(property);
-                Collections.reverse(propertyList);
+
                 custAdapter = new CustAdapter(CustomerDetailActivity.this,propertyList);
                 recyclerView.setAdapter(custAdapter);
                 custAdapter.notifyDataSetChanged();
+
 
             }
 
@@ -139,5 +141,12 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("CustDet"," in On stop");
+        propertyList.clear();
     }
 }
