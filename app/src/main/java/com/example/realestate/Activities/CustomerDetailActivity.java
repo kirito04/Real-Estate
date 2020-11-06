@@ -8,9 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.example.realestate.Constants.Constants;
 import com.example.realestate.Constants.Property;
@@ -34,6 +37,7 @@ import java.util.Set;
 
 public class CustomerDetailActivity extends AppCompatActivity {
 
+    private EditText searchBar;
     private RecyclerView recyclerView;
     private CustAdapter custAdapter;
     private List<Property> propertyList;
@@ -50,6 +54,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_detail);
 
+        searchBar = findViewById(R.id.search_bar_id);
         recyclerView = findViewById(R.id.recyclerViewCust);
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,8 +82,35 @@ public class CustomerDetailActivity extends AppCompatActivity {
             }
         });
 
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filterSearch(s.toString());
+            }
+        });
+
+    }
+
+    private void filterSearch(String text){
+        ArrayList<Property> filterList = new ArrayList<>();
+
+        for(Property prop:propertyList){
+            if(prop.getType().toLowerCase().contains(text.toLowerCase())){
+                filterList.add(prop);
+            }
+        }
+
+        custAdapter.filter(filterList);
     }
 
     @Override

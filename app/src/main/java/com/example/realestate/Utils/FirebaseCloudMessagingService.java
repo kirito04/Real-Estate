@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -27,9 +28,14 @@ import java.util.Random;
 
 public class FirebaseCloudMessagingService extends FirebaseMessagingService {
 
+    public FirebaseCloudMessagingService() {
+        super();
+    }
+
     @Override
     public void onMessageReceived(@NonNull RemoteMessage remoteMessage) {
 
+        Log.d("FirebaseCloud","message received from cloud");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             Uri imageUrl = remoteMessage.getNotification().getImageUrl();
             Bitmap bmp = null;
@@ -37,7 +43,7 @@ public class FirebaseCloudMessagingService extends FirebaseMessagingService {
                 InputStream in = new URL(imageUrl.toString()).openStream();
                 bmp = BitmapFactory.decodeStream(in);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.d("FirebaseCloud","Image is null");
             }
 
             createNotification(remoteMessage.getNotification().getTitle(),remoteMessage.getNotification().getBody(),bmp);
@@ -67,8 +73,11 @@ public class FirebaseCloudMessagingService extends FirebaseMessagingService {
                 .setAutoCancel(true)
                 .setSmallIcon(R.drawable.common_full_open_on_phone)
                 .setDefaults(Notification.DEFAULT_ALL)
-                .setContentIntent(contentIntent)
-                .setLargeIcon(image);
+                .setContentIntent(contentIntent);
+
+        if(image!=null){
+            notifBuilder.setLargeIcon(image);
+        }
 
         // finally create the notification using the notification manager
         manager.notify(new Random().nextInt(), notifBuilder.build());

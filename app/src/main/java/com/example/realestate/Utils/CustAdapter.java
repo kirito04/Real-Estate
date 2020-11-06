@@ -3,6 +3,8 @@ package com.example.realestate.Utils;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +14,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.realestate.Activities.FullDetCustActivity;
 import com.example.realestate.Constants.Property;
 import com.example.realestate.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,6 +66,11 @@ public class CustAdapter extends RecyclerView.Adapter<CustAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return propertyList.size();
+    }
+
+    public void filter(ArrayList<Property> filterList){
+        this.propertyList = filterList;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -124,6 +134,26 @@ public class CustAdapter extends RecyclerView.Adapter<CustAdapter.ViewHolder> {
                     callIntent.setAction(Intent.ACTION_DIAL);
                     callIntent.setData(Uri.parse("tel:"+list.get(2)));
                     context.startActivity(callIntent);
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                //@RequiresApi(api = Build.VERSION_CODES.M)
+                @Override
+                public void onClick(View v) {
+                    Intent extraIntent = new Intent(context, FullDetCustActivity.class);
+                    extraIntent.putExtra("Type",type.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Location",location.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Area",area.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Status",status.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Transaction",transaction.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Price",price.getText().toString().replaceAll("\n",""));
+                    extraIntent.putExtra("Contact",contact.getText().toString().replaceAll("\n",""));
+                    //extraIntent.putExtra("image",image.getForeground().toString());
+                    int pos = getAdapterPosition();
+                    extraIntent.putExtra("Image",propertyList.get(pos).getImage());
+
+                    context.startActivity(extraIntent);
                 }
             });
 

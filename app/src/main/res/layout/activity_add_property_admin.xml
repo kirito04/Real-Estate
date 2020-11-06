@@ -11,13 +11,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="Contact"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/addPropPostButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPropPrice"
         app:layout_constraintVertical_bias="0.0" />
@@ -31,13 +32,13 @@
         android:hint="Type"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/addPropPostButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@id/addPropImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintTop_toBottomOf="@+id/addPropImage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/addPropPrice"
@@ -48,9 +49,9 @@
         android:hint="Price"
         android:inputType="textPersonName"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/addPropPostButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addPropTransaction"
         app:layout_constraintVertical_bias="0.0" />
@@ -60,15 +61,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:ems="10"
         android:hint="Transaction"
         android:inputType="textPersonName"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPropStatus" />
+        app:layout_constraintTop_toBottomOf="@+id/addPropStatus"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/addPropStatus"
@@ -80,40 +83,45 @@
         android:hint="Status"
         android:inputType="textPersonName"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPropArea" />
+        app:layout_constraintTop_toBottomOf="@+id/addPropArea"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/addPropArea"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Area"
         android:inputType="textPersonName"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPropLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/addPropLocation"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/addPropLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Location"
         android:inputType="textPersonName"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addPropPostButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPropType" />
+        app:layout_constraintTop_toBottomOf="@+id/addPropType"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/addPropPostButton"
@@ -121,23 +129,28 @@
         android:layout_height="wrap_content"
         android:text="Post"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addPropContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPropPrice"
-        app:layout_constraintVertical_bias="0.803" />
+        android:layout_marginBottom="20dp"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/addPropImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/add_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.107"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.051" />
+    <!--tools:srcCompat="@tools:sample/avatars" -->
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

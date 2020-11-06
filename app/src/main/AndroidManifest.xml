@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.CustomerDetailActivity"></activity>
+        <activity android:name=".Activities.FullDetCustActivity"></activity>
+        <activity android:name=".Activities.CustomerDetailActivity" />
         <activity android:name=".Activities.AddPropertyAdminActivity" />
         <activity android:name=".Activities.DetailAdminActivity" />
         <activity android:name=".Activities.RegisterActivity" />

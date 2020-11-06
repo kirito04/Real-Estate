@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="#DAD8D8"
-    app:cardCornerRadius="3dp"
-    app:cardElevation="2dp">
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="10dp"
+    android:background="@drawable/card_view_boundary"
+    app:contentPadding="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,6 +43,7 @@
                 android:id="@+id/detail_card_cust_location"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textStyle="bold"
                 android:padding="10dp"
                 android:text="Location" />
 
@@ -55,6 +58,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="10dp"
+                    android:textStyle="bold"
                     android:background="@drawable/boundary"
                     android:text="Area" />
 
@@ -64,6 +68,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="10dp"
+                    android:textStyle="bold"
                     android:background="@drawable/boundary"
                     android:text="Status" />
 
@@ -73,6 +78,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:padding="10dp"
+                    android:textStyle="bold"
                     android:background="@drawable/boundary"
                     android:text="Transaction" />
 
@@ -103,6 +109,7 @@
                     android:background="@drawable/boundary"
                     android:gravity="left|center"
                     android:padding="10dp"
+                    android:textStyle="bold"
                     android:text="Contact Number:"
                     android:layout_alignParentLeft="true"
                      />

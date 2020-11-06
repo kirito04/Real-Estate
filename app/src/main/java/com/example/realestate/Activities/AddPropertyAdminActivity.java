@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -83,6 +84,8 @@ public class AddPropertyAdminActivity extends AppCompatActivity {
                 startPosting();
             }
         });
+
+
     }
 
     private void startPosting(){

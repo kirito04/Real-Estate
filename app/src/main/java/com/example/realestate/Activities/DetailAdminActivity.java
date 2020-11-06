@@ -140,4 +140,11 @@ public class DetailAdminActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        //Log.d("CustDet"," in On stop");
+        propertyList.clear();
+    }
 }
