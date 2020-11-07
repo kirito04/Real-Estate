@@ -3,11 +3,13 @@ package com.example.realestate.Activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.Window;
@@ -49,11 +51,14 @@ public class LoginActivity extends AppCompatActivity {
         setTheme(R.style.LoginPage);
         setContentView(R.layout.activity_login);
 
+        final ConstraintLayout loginButtonLayout = findViewById(R.id.loginButtonLayoutID);
+
         email = findViewById(R.id.loginEmailID);
         password = findViewById(R.id.loginPasswordID);
         loginButton = findViewById(R.id.loginLoginButtonID);
         signUpButton = findViewById(R.id.loginSignUpButtonID);
 
+       loginButtonLayout.setVisibility(View.INVISIBLE);
         getSupportActionBar().hide();        // hide action bar
 
         // set status bar color same as the activity accent
@@ -97,6 +102,14 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+
+        Handler loginButtonDelayHandler = new Handler();
+        loginButtonDelayHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loginButtonLayout.setVisibility(View.VISIBLE);
+            }
+        },1000);
 
         // Login button
         loginButton.setOnClickListener(new View.OnClickListener() {

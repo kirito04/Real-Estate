@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Real Estate</string>
+    
+    <string-array name="search_criteria">
+        <item>Type</item>
+        <item>Location</item>
+        <item>Status</item>
+        <item>Transaction</item>
+    </string-array>
 </resources>

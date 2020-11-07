@@ -13,7 +13,11 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.example.realestate.Constants.Constants;
 import com.example.realestate.Constants.Property;
@@ -35,9 +39,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class CustomerDetailActivity extends AppCompatActivity {
+public class CustomerDetailActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private EditText searchBar;
+    private Spinner spinner;
+    private String searchType = "Type";
+
     private RecyclerView recyclerView;
     private CustAdapter custAdapter;
     private List<Property> propertyList;
@@ -55,6 +62,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_detail);
 
         searchBar = findViewById(R.id.search_bar_id);
+        spinner = findViewById(R.id.search_spinner_id);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.search_criteria, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
         recyclerView = findViewById(R.id.recyclerViewCust);
         recyclerView.hasFixedSize();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -103,10 +117,36 @@ public class CustomerDetailActivity extends AppCompatActivity {
 
     private void filterSearch(String text){
         ArrayList<Property> filterList = new ArrayList<>();
+        if(searchType.equals("Type")){
+            for(Property prop:propertyList){
+                if(prop.getType().toLowerCase().contains(text.toLowerCase())){
+                    filterList.add(prop);
+                }
+            }
+        }else if(searchType.equals("Location")){
+            for(Property prop:propertyList){
+                if(prop.getLocation().toLowerCase().contains(text.toLowerCase())){
+                    filterList.add(prop);
+                }
+            }
+        }else if(searchType.equals("Status")){
+            for(Property prop:propertyList){
+                if(prop.getStatus().toLowerCase().contains(text.toLowerCase())){
+                    filterList.add(prop);
+                }
+            }
+        }else if(searchType.equals("Transaction")){
 
-        for(Property prop:propertyList){
-            if(prop.getType().toLowerCase().contains(text.toLowerCase())){
-                filterList.add(prop);
+            for(Property prop:propertyList){
+                if(prop.getTransaction().toLowerCase().contains(text.toLowerCase())){
+                    filterList.add(prop);
+                }
+            }
+        }else{
+            for(Property prop:propertyList){
+                if(prop.getType().toLowerCase().contains(text.toLowerCase())){
+                    filterList.add(prop);
+                }
             }
         }
 
@@ -180,5 +220,18 @@ public class CustomerDetailActivity extends AppCompatActivity {
         super.onStop();
         Log.d("CustDet"," in On stop");
         propertyList.clear();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        searchType = (String) parent.getItemAtPosition(position);
+        searchBar.setHint("Search by "+searchType);
+        Log.d("CustDet","Search type is "+searchType);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
