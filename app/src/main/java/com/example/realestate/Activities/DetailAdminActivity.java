@@ -86,7 +86,6 @@ public class DetailAdminActivity extends AppCompatActivity {
             case R.id.action_AddProperty:
                 Log.d("MENU DEBUG","Add Property Clicked");
                 startActivity(new Intent(DetailAdminActivity.this,AddPropertyAdminActivity.class));
-                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -128,6 +128,7 @@ public class AddPropertyAdminActivity extends AppCompatActivity {
                     Log.d("AddProp","details posted to database");
 
                     startActivity(new Intent(AddPropertyAdminActivity.this,DetailAdminActivity.class));
+                    finish();
                 }
             });
         }else{
