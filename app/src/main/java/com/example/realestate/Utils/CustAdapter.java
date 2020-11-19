@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -30,6 +32,7 @@ public class CustAdapter extends RecyclerView.Adapter<CustAdapter.ViewHolder> {
 
     private Context context;
     private List<Property> propertyList;
+    private int currentPosition = -1;
 
     public CustAdapter(Context context, List<Property> propertyList) {
         this.context = context;
@@ -61,6 +64,16 @@ public class CustAdapter extends RecyclerView.Adapter<CustAdapter.ViewHolder> {
         imageURL = property.getImage();
         Picasso.get().load(imageURL).into(holder.image);
 
+        setAnimation(holder.itemView,position);
+
+    }
+
+    private void setAnimation(View itemView, int position) {
+        if(position>currentPosition){
+            Animation animation = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left);
+            itemView.setAnimation(animation);
+            currentPosition = position;
+        }
     }
 
     @Override
